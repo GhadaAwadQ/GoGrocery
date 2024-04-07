@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoGrocery Products</title>
+    
+    <!--Products page style-->
+    <link rel="stylesheet" type="text/css" href="css/productpage-style.css">
+
+    <!--Header and Footer style-->
+    <link rel="stylesheet" type="text/css" href="css/HFstyle.css">
+
+</head>
+        
+<body>
+    <!--Navigation bar-->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="home.html#home"><img src="images/GoGrocery-Title.png" alt="GoGrocery Logo"></a>
+            </div>
+
+            <ul>
+                <li><a href="home.html#home">Home</a></li>
+                <li><a href="home.html#about">About Us</a></li>
+                <li class="dropdown">
+                    <a href="product-page.html" class="dropbtn">Shop</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Vegetables</a>
+                        <a href="#fruits">Fruits</a>
+                        <a href="#meats">Meats</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Pages</a> <!--#-->
+                    <div class="dropdown-content">
+                        <a href="home.html">Home</a>         
+                        <a href="Login.html">Admin Login</a>
+                        <a href="AdminMangingProducts.html">Admin Managing</a>
+                        <a href="product-page.html" class="active">Products</a>
+                        <a href="ProductDetails.html">Product Details</a>
+			<a href="Cart.html">Shopping Cart</a>
+                        <a href="Checkout.html">Checkout</a> 
+                    </div>
+                </li>
+                <li><a href="home.html#contact">Contact Us</a></li>
+            </ul>
+
+            <!--Cart and Login-->
+            <div class="icons">
+                <a href="Login.html"><img src="images/login-icon.png" alt="Login"></a>
+                <a href="Cart.html"><img src="images/cart-icon.png" alt="Cart"> <span>3</span> </a>             </div>
+        </nav>
+    </header>
+
+
+   <!-------Products code--------->
+
+<!-- Fruits products -->
+    <div class="container">
+        <div class="category" id="vegetables">
+            <h2>Vegetables</h2>
+            <div class="products">
+
+                <div class="product" onclick="location.href='ProductDetails.html?id=vegetable1';">
+                    <img src="Images/carrots.jpg" alt="Vegetable 1">
+                    <h3>Carrot</h3>
+                    <p>$1.99</p>
+                </div>
+                <div class="product" onclick="location.href='ProductDetails.html?id=vegetable2';">
+                    <img src="Images/tomatoe.jpg" alt="Vegetable 2">
+                    <h3>Tomato</h3>
+                    <p>$2.49</p>
+                </div>
+                <div class="product" onclick="location.href='ProductDetails.html?id=vegetable3';">
+                    <img src="Images/cucumber.jpg" alt="Vegetable 3">
+                    <h3>Cucumber</h3>
+                    <p>$0.99</p>
+                </div>
+                <div class="product" onclick="location.href='ProductDetails.html?id=vegetable4';">
+                    <img src="Images/cellary.jpg" alt="Vegetable 4">
+                    <h3>Celery</h3>
+                    <p>$1.29</p>
+                </div>
+            </div>
+        </div>
+
+<!-- Fruits products -->
+        <div class="category" id="fruits">
+            <h2>Fruits</h2>
+            <div class="products">
+               
+                <div class="product" onclick="location.href='ProductDetails.html?id=fruit1';">
+                    <img src="Images/bannana.jpg" alt="Fruit 1">
+                    <h3>Banana</h3>
+                    <p>$2.99</p>
+                </div>
+                <div class="product" onclick="location.href='ProductDetails.html?id=fruit2';">
+                    <img src="Images/strawberry.jpg" alt="Fruit 2">
+                    <h3>Strawberry</h3>
+                    <p>$3.49</p>
+                </div>
+                <div class="product" onclick="location.href='ProductDetails.html?id=fruit3';">
+                    <img src="Images/kiwi.jpg" alt="Fruit 3">
+                    <h3>Kiwi</h3>
+                    <p>$1.99</p>
+                </div>
+                <div class="product" onclick="location.href='ProductDetails.html?id=fruit4';">
+                    <img src="Images/orange.jpg" alt="Fruit 4">
+                    <h3>Orange</h3>
+                    <p>$2.79</p>
+                </div>
+            </div>
+        </div>
+
+<!-- Meat products -->
+        <div class="category" id="meats">
+            <h2>Meats</h2>
+            <div class="products">
+              
+                <div class="product" onclick="location.href='ProductDetails.html?id=meat1';">
+                    <img src="Images/beef.jpg" alt="Meat 1">
+                    <h3>Beef</h3>
+                    <p>$5.99</p>
+                </div>
+                <div class="product" onclick="location.href='ProductDetails.html?id=meat2';">
+                    <img src="Images/chicken.jpg" alt="Meat 2">
+                    <h3>Chicken</h3>
+                    <p>$7.49</p>
+                </div>
+                <div class="product" onclick="location.href='ProductDetails.html?id=meat3';">
+                    <img src="Images/fish.jpg" alt="Meat 3">
+                    <h3>Fish</h3>
+                    <p>$6.99</p>
+                </div>
+                <div class="product" onclick="location.href='ProductDetails.html?id=meat4';">
+                    <img src="Images/camel.jpg" alt="Meat 4">
+                    <h3>Camel</h3>
+                    <p>$8.29</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--------Footer section---------->
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>About Us</h2>
+                <p>GoGrocery: Your Ultimate Online Grocery Store. Quality products, easy ordering, reliable delivery.
+                    Simplify your life with us.</p>
+
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/" target="_blank"><img src="images/facebook-icon.png"
+                            alt="Facebook"></a>
+                    <a href="https://twitter.com/" target="_blank"><img src="images/x-icon.png" alt="x"></a>
+                    <a href="https://www.instagram.com/?hl=ar" target="_blank"><img src="images/instagram-icon.png"
+                            alt="Instagram"></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h2>Contact Us</h2>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:info@example.com">info@example.com</a></li>
+                    <br>
+                    <li><strong>Phone:</strong> <a href="tel:+1234567890">123-456-7890</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="home.html#home">Home</a></li>
+                    <li><a href="home.html#about">About Us</a></li>
+                    <li><a href="product-page.html">Shop</a></li>
+                    <li><a href="home.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 GoGrocery. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

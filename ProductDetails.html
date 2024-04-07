@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    
+    <!--Product Details style-->
+    <link rel="stylesheet" type="text/css" href="css/PDStyle.css">
+
+    <!--Header and Footer style-->
+    <link rel="stylesheet" type="text/css" href="css/HFstyle.css">
+
+</head>
+
+
+<body>
+ <!--Navigation bar-->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="home.html#home"><img src="images/GoGrocery-Title.png" alt="GoGrocery Logo"></a>
+            </div>
+
+            <ul>
+                <li><a href="home.html#home">Home</a></li>
+                <li><a href="home.html#about">About Us</a></li>
+                <li class="dropdown">
+                    <a href="product-page.html" class="dropbtn">Shop</a>
+                    <div class="dropdown-content">
+                        <a href="product-page.html#vegetables">Vegetables</a>
+                        <a href="product-page.html#fruits">Fruits</a>
+                        <a href="product-page.html#meats">Meats</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Pages</a> <!--#-->
+                    <div class="dropdown-content">
+                        <a href="home.html">Home</a>         
+                        <a href="Login.html">Admin Login</a>
+                        <a href="AdminMangingProducts.html">Admin Managing</a>
+                        <a href="product-page.html">Products</a>
+                        <a href="ProductDetails.html" class="active">Product Details</a>
+			<a href="Cart.html">Shopping Cart</a>
+                        <a href="Checkout.html">Checkout</a> 
+                    </div>
+                </li>
+                <li><a href="home.html#contact">Contact Us</a></li>
+            </ul>
+
+            <!--Cart and Login-->
+            <div class="icons">
+                <a href="Login.html"><img src="images/login-icon.png" alt="Login"></a>
+                <a href="Cart.html"><img src="images/cart-icon.png" alt="Cart"> <span>3</span> </a>             </div>
+        </nav>
+    </header>
+
+
+<!--------------------My Page Content-------------------->
+
+<div class="container">
+    <img class="product-image" src="Images/carrots.jpg" alt="Product Image">
+    <div class="product-info">
+        <h1>Carrot</h1>
+        <h2><span class="unit-price">$1.99</span></h2>
+
+        <p>Delight in the crisp, vibrant taste of our premium carrots, handpicked from the finest farms for unbeatable freshness. 
+	Packed with essential nutrients and bursting with flavor, these crunchy delights elevate any dish. Whether juicing, cooking, 
+	or snacking, savor the farm-fresh goodness in every bite. Elevate your meals with our quality carrots – taste the difference today!</p>
+	
+ 	<p><strong>Color: </strong> <span class="color">Orange</span></p>
+	<p><strong>size: </strong><span class="size">Medium</span></p>
+	<p><strong>Stock Availability: </strong><span class="stock">20</span> units</p>
+
+        <label for="quantity"><strong>Quantity: </label>
+        <input type="number" id="quantity" min="1" value="1">
+        <button class="add-to-cart-btn" onclick="addToCart()"><strong>Add to Shopping Cart</button>
+        <p class="message" style="display: none; color: red;">Not enough stock available for the desired quantity.</p>
+        <p><strong>Total: </strong><span class="total">$1.99</span></p>
+	
+	
+    </div>
+</div>
+
+<script>
+    function addToCart() {
+        var quantity = parseInt(document.getElementById('quantity').value);
+        var unitPrice = parseFloat(document.querySelector('.unit-price').innerText.replace('$', ''));
+        var stock = parseInt(document.querySelector('.stock').innerText);
+        var total = quantity * unitPrice;
+
+        if (quantity <= stock) {
+            document.querySelector('.message').style.display = 'none';
+            document.querySelector('.total').innerText = '$' + total.toFixed(2);
+            // Here you can add the logic to add the item to the shopping cart
+            console.log('Added to shopping cart successfully!');
+        } else {
+            document.querySelector('.message').style.display = 'block';
+        }
+    }
+</script>
+
+ <!--Footer section-->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>About Us</h2>
+                <p>GoGrocery: Your Ultimate Online Grocery Store. Quality products, easy ordering, reliable delivery.
+                    Simplify your life with us.</p>
+
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/" target="_blank"><img src="images/facebook-icon.png"
+                            alt="Facebook"></a>
+                    <a href="https://twitter.com/" target="_blank"><img src="images/x-icon.png" alt="x"></a>
+                    <a href="https://www.instagram.com/?hl=ar" target="_blank"><img src="images/instagram-icon.png"
+                            alt="Instagram"></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h2>Contact Us</h2>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:info@example.com">info@example.com</a></li>
+                    <br>
+                    <li><strong>Phone:</strong> <a href="tel:+1234567890">123-456-7890</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="home.html#home">Home</a></li>
+                    <li><a href="home.html#about">About Us</a></li>
+                    <li><a href="product-page.html">Shop</a></li>
+                    <li><a href="home.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 GoGrocery. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+</body>
+</html>
+

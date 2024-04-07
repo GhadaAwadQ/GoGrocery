@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Manage Products</title>
+<link rel="stylesheet" type="text/css" href="css/HFstyle.css">
+<link rel="stylesheet" type="text/css" href="css/AdminMangingProducts.css">
+
+</head>
+
+<body>
+<!--Navigation bar-->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="home.html#home"><img src="images/GoGrocery-Title.png" alt="GoGrocery Logo"></a>
+            </div>
+
+            <ul>
+                <li><a href="home.html#home">Home</a></li>
+                <li><a href="home.html#about">About Us</a></li>
+                <li class="dropdown">
+                    <a href="product-page.html" class="dropbtn">Shop</a>
+                    <div class="dropdown-content">
+                        <a href="product-page.html#vegetables">Vegetables</a>
+                        <a href="product-page.html#fruits">Fruits</a>
+                        <a href="product-page.html#meats">Meats</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Pages</a> <!--#-->
+                    <div class="dropdown-content">
+                        <a href="home.html">Home</a>         
+                        <a href="Login.html">Admin Login</a>
+                        <a href="AdminMangingProducts.html" class="active">Admin Managing</a>
+                        <a href="product-page.html">Products</a>
+                        <a href="ProductDetails.html">Product Details</a>
+			<a href="Cart.html">Shopping Cart</a>
+                        <a href="Checkout.html">Checkout</a> 
+                    </div>
+                </li>
+                <li><a href="home.html#contact">Contact Us</a></li>
+            </ul>
+
+            <!--Cart and Login-->
+            <div class="icons">
+                <a href="Login.html"><img src="images/login-icon.png" alt="Login"></a>
+                <a href="Cart.html"><img src="images/cart-icon.png" alt="Cart"> <span>3</span> </a>             </div>
+        </nav>
+    </header>
+
+<!-------------------PAGE MAIN CONTENT -------------------->
+
+    <h1> Admin Settings</h1>
+
+<h3>Add New Item</h2>
+   <form id="productForm">
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" required>
+
+        <label for="category">Category:</label>
+        <select id="category" required>
+            <option value="vegetables">Vegetables</option>
+            <option value="fruits">Fruits</option>
+            <option value="meat">Meat</option>
+        </select>
+
+        <label for="productSize">Size:</label>
+        <input type="text" id="productSize" required>
+
+        <label for="productColor">Color:</label>
+        <input type="text" id="productColor" required>
+
+        <label for="productPrice">Price:</label>
+        <input type="text" id="productPrice" required><br>
+
+        <button type="button" onclick="addProduct()">Add Product</button>
+    </form>
+       <div id="addProductMessage"></div>
+    <hr>
+
+    <h3>Modify/Delete Products</h3>
+
+    <strong><label for="searchProductName">Product Name:</label></strong>
+    <input type="text" id="searchProductName" required>
+
+    <button type="button" onclick="searchProduct()">Search</button>
+
+    <div id="productDetails"></div>
+
+    <script>
+        function addProduct() {
+            // Get values from the form
+           var productName = document.getElementById('productName').value;
+            var category = document.getElementById('category').value;
+            var productSize = document.getElementById('productSize').value;
+            var productColor = document.getElementById('productColor').value;
+            var productPrice = document.getElementById('productPrice').value;
+
+            // Check if all fields are filled
+            if (productName === '' || productSize === '' || productColor === '' || productPrice === '') {
+                document.getElementById('addProductMessage').innerText = "Empty information is required.";
+                return;
+            }
+            
+            console.log("Adding product to the database:", productName, category, productSize, productColor, productPrice);
+
+             // Display success message
+            document.getElementById('addProductMessage').innerText = "Adding the product has been done successfully.";
+
+            document.getElementById('productName').value = '';
+            document.getElementById('productSize').value = '';
+            document.getElementById('productColor').value = '';
+            document.getElementById('productPrice').value = '';
+        }
+
+        function searchProduct() {
+         
+            var searchProductName = document.getElementById('searchProductName').value;
+
+            console.log("Searching for product:", searchProductName);
+
+            // Display product details
+            var productDetails = document.getElementById('productDetails');
+            productDetails.innerHTML = "<p>Product Name: " + searchProductName + "</p>";
+
+            // Add size, color, and price 
+          
+            var productSize = "Medium"; 
+            var productColor = "Orange"; 
+            var productPrice = "$1.99";
+            productDetails.innerHTML += "<p>Size: " + productSize + "</p>";
+            productDetails.innerHTML += "<p>Color: " + productColor + "</p>";
+            productDetails.innerHTML += "<p>Price: " + productPrice + "</p>";
+
+      
+            productDetails.innerHTML += "<button type='button' onclick='modifyProduct()'>Modify</button>";
+            productDetails.innerHTML += "<button type='button' onclick='deleteProduct()'>Delete</button>";
+        }
+
+        function modifyProduct() {
+            // Database modification 
+            console.log("Modifying product");
+            document.getElementById('productDetails').innerHTML = '';
+
+        // Display success message
+            document.getElementById('productDetails').innerHTML = "Product modified successfully.";
+         }
+
+        function deleteProduct() {
+            // Database deletion
+            console.log("Deleting product");
+            document.getElementById('productDetails').innerHTML = '';
+        // Display success message
+            document.getElementById('productDetails').innerHTML = "Product deleted successfully.";
+        }
+    </script>
+
+<!--Footer section-->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>About Us</h2>
+                <p>GoGrocery: Your Ultimate Online Grocery Store. Quality products, easy ordering, reliable delivery.
+                    Simplify your life with us.</p>
+
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/" target="_blank"><img src="images/facebook-icon.png"
+                            alt="Facebook"></a>
+                    <a href="https://twitter.com/" target="_blank"><img src="images/x-icon.png" alt="x"></a>
+                    <a href="https://www.instagram.com/?hl=ar" target="_blank"><img src="images/instagram-icon.png"
+                            alt="Instagram"></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h2>Contact Us</h2>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:info@example.com">info@example.com</a></li>
+                    <br>
+                    <li><strong>Phone:</strong> <a href="tel:+1234567890">123-456-7890</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="product-page.html">Shop</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 GoGrocery. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart</title>
+
+<link rel="stylesheet" type="text/css" href="css/CartStyle.css">
+<link rel="stylesheet" type="text/css" href="css/HFstyle.css">
+
+</head>
+
+
+<body>
+ <!--Navigation bar-->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="home.html#home"><img src="images/GoGrocery-Title.png" alt="GoGrocery Logo"></a>
+            </div>
+
+            <ul>
+                <li><a href="home.html#home">Home</a></li>
+                <li><a href="home.html#about">About Us</a></li>
+                <li class="dropdown">
+                    <a href="product-page.html" class="dropbtn">Shop</a>
+                    <div class="dropdown-content">
+                        <a href="product-page.html#vegetables">Vegetables</a>
+                        <a href="product-page.html#fruits">Fruits</a>
+                        <a href="product-page.html#meats">Meats</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Pages</a> <!--#-->
+                    <div class="dropdown-content">
+                        <a href="home.html">Home</a>         
+                        <a href="Login.html">Admin Login</a>
+                        <a href="AdminMangingProducts.html">Admin Managing</a>
+                        <a href="product-page.html">Products</a>
+                        <a href="ProductDetails.html">Product Details</a>
+			<a href="Cart.html" class="active">Shopping Cart</a>
+                        <a href="Checkout.html">Checkout</a> 
+                    </div>
+                </li>
+                <li><a href="home.html#contact">Contact Us</a></li>
+            </ul>
+
+            <!--Cart and Login-->
+            <div class="icons">
+                <a href="Login.html"><img src="images/login-icon.png" alt="Login"></a>
+                <a href="Cart.html"><img src="images/cart-icon.png" alt="Cart"> <span>3</span> </a>             </div>
+        </nav>
+    </header>
+
+<!--------------------MAIN CODE IS HERE----------------->
+
+<h1>GoGrocery Shopping Cart</h1>
+
+
+
+<table id="orders-table">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th> <!-- New column for total price -->
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Orders will be added dynamically here -->
+    </tbody>
+</table>
+
+<br>
+
+<button onclick="window.location.href='Checkout.html'">Checkout</button>
+<button onclick="emptyCart()">Empty Shopping Cart</button>
+
+
+
+<script>
+
+    // Sample: Add some initial orders (no changes needed)
+
+    // Function to calculate the total amount of the order
+    function calculateTotalAmount() {
+        var total = 0;
+        // Iterate through the table rows and sum up the total
+        var table = document.getElementById("orders-table").getElementsByTagName('tbody')[0];
+        var rows = table.getElementsByTagName("tr");
+        for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            var price = parseFloat(row.cells[1].innerHTML.replace('$', ''));
+            var quantity = parseInt(row.cells[2].innerHTML);
+            total += price * quantity;
+        }
+        return total.toFixed(2); // Return total amount with 2 decimal places
+    }
+        function addOrder(product, price, quantity) {
+            var table = document.getElementById("orders-table").getElementsByTagName('tbody')[0];
+            var newRow = table.insertRow();
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            var cell4 = newRow.insertCell(3); // New cell for total price
+            var cell5 = newRow.insertCell(4); // Action cell
+            cell1.innerHTML = product;
+            cell2.innerHTML = price;
+            cell3.innerHTML = quantity;
+            // Calculate total price
+            var totalPrice = parseFloat(price.replace('$', '')) * quantity; // Assuming price format is $x.xx
+            cell4.innerHTML = "$" + totalPrice.toFixed(2); // Display total price with 2 decimal places
+            cell5.innerHTML = '<button onclick="modifyQuantity(this)">Modify</button>' +
+                              '<button onclick="deleteOrder(this)">Delete</button>';
+        }
+
+    // Function to modify the quantity of an order
+    function modifyQuantity(btn) {
+            var row = btn.parentNode.parentNode;
+            var product = row.cells[0].innerHTML;
+            var newQuantity = prompt("Enter new quantity for " + product + ":");
+            if (newQuantity !== null) {
+                row.cells[2].innerHTML = newQuantity;
+                // Update total price
+                var price = row.cells[1].innerHTML;
+                var totalPrice = parseFloat(price.replace('$', '')) * newQuantity;
+                row.cells[3].innerHTML = "$" + totalPrice.toFixed(2);
+            }
+        }
+
+    // Function to delete an order
+    function deleteOrder(btn) {
+        var row = btn.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+
+    // Function to empty the shopping cart
+    function emptyCart() {
+        var table = document.getElementById("orders-table").getElementsByTagName('tbody')[0];
+        table.innerHTML = '';
+    }
+
+    function purchaseCart() {
+    // Empty the cart
+    emptyCart();
+}
+
+
+    // Sample: Add some initial orders
+    addOrder("Chicken", "$7.49", 5);
+    addOrder("Banana", "$2.99", 3);
+    addOrder("Orange", "$2.79", 2);
+</script>
+
+
+<!--------Footer section---------->
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>About Us</h2>
+                <p>GoGrocery: Your Ultimate Online Grocery Store. Quality products, easy ordering, reliable delivery.
+                    Simplify your life with us.</p>
+
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/" target="_blank"><img src="images/facebook-icon.png"
+                            alt="Facebook"></a>
+                    <a href="https://twitter.com/" target="_blank"><img src="images/x-icon.png" alt="x"></a>
+                    <a href="https://www.instagram.com/?hl=ar" target="_blank"><img src="images/instagram-icon.png"
+                            alt="Instagram"></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h2>Contact Us</h2>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:info@example.com">info@example.com</a></li>
+                    <br>
+                    <li><strong>Phone:</strong> <a href="tel:+1234567890">123-456-7890</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="home.html#home">Home</a></li>
+                    <li><a href="home.html#about">About Us</a></li>
+                    <li><a href="product-page.html">Shop</a></li>
+                    <li><a href="home.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 GoGrocery. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

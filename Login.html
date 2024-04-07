@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" type="text/css" href="css/Login.css">
+    <link rel="stylesheet" type="text/css" href="css/HFstyle.css">
+</head>
+
+<body>
+   <!--Navigation bar-->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="home.html#home"><img src="images/GoGrocery-Title.png" alt="GoGrocery Logo"></a>
+            </div>
+
+            <ul>
+                <li><a href="home.html#home">Home</a></li>
+                <li><a href="home.html#about">About Us</a></li>
+                <li class="dropdown">
+                    <a href="product-page.html" class="dropbtn">Shop</a>
+                    <div class="dropdown-content">
+                        <a href="product-page.html#vegetables">Vegetables</a>
+                        <a href="product-page.html#fruits">Fruits</a>
+                        <a href="product-page.html#meats">Meats</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Pages</a> <!--#-->
+                    <div class="dropdown-content">
+                        <a href="home.html">Home</a>         
+                        <a href="Login.html" class="active">Admin Login</a>
+                        <a href="AdminMangingProducts.html">Admin Managing</a>
+                        <a href="product-page.html">Products</a>
+                        <a href="ProductDetails.html">Product Details</a>
+			<a href="Cart.html">Shopping Cart</a>
+                        <a href="Checkout.html">Checkout</a> 
+                    </div>
+                </li>
+                <li><a href="home.html#contact">Contact Us</a></li>
+            </ul>
+
+            <!--Cart and Login-->
+            <div class="icons">
+                <a href="Login.html"><img src="images/login-icon.png" alt="Login"></a>
+                <a href="Cart.html"><img src="images/cart-icon.png" alt="Cart"> <span>3</span> </a>             </div>
+        </nav>
+    </header>
+
+
+    
+    <!-- Main Content (Login Form) -->
+    <div class="login-container">
+        <form action="your_action_page.php" method="POST">
+            <h2>Admin Login</h2>
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn" onclick="window.location.href='AdminMangingProducts.html'">Login</button>
+            
+        </form>
+    </div>
+
+<!-- Footer Content-->
+
+   <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>About Us</h2>
+                <p>GoGrocery: Your Ultimate Online Grocery Store. Quality products, easy ordering, reliable delivery.
+                    Simplify your life with us.</p>
+
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/" target="_blank"><img src="images/facebook-icon.png"
+                            alt="Facebook"></a>
+                    <a href="https://twitter.com/" target="_blank"><img src="images/x-icon.png" alt="x"></a>
+                    <a href="https://www.instagram.com/?hl=ar" target="_blank"><img src="images/instagram-icon.png"
+                            alt="Instagram"></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h2>Contact Us</h2>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:info@example.com">info@example.com</a></li>
+                    <br>
+                    <li><strong>Phone:</strong> <a href="tel:+1234567890">123-456-7890</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="home.html#home">Home</a></li>
+                    <li><a href="home.html#about">About Us</a></li>
+                    <li><a href="product-page.html">Shop</a></li>
+                    <li><a href="home.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 GoGrocery. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
